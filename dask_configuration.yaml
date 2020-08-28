@@ -1,0 +1,15 @@
+logging:
+  version: 1
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: INFO
+  loggers:
+    distributed.worker:
+      level: INFO
+      handlers:
+        - console
+    distributed.scheduler:
+      level: INFO
+      handlers:
+        - console
