@@ -6,7 +6,7 @@ RUN apt update -y && \
     pip install -U pip
 
 RUN cd /tmp && \
-    git clone -b master https://github.com/quanted/vb_django.git && \
+    git clone -b main https://github.com/quanted/vb_django.git && \
     pip install --ignore-installed -r vb_django/requirements.txt  && \
     rm -rf vb_django
 
