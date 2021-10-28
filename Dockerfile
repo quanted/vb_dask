@@ -1,4 +1,4 @@
-FROM daskdev/dask:latest
+FROM daskdev/dask:2021.10.0-py3.9
 
 RUN apt update -y && \
     apt upgrade -y && \
