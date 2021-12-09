@@ -13,8 +13,9 @@ RUN conda create --name pyenv python=3.9
 RUN cd /app && git clone -b main https://github.com/quanted/vb_django.git && \
     conda run -n pyenv --no-capture-output pip install -r vb_django/requirements.txt
 
-ENV PYTHONPATH="/app:/app/vb_django:/app/vb_django/vb_django:${PYTHONPATH}"
-ENV PATH="/app:/app/vb_django:/app/vb_django/vb_django:${PATH}"
+RUN chmod 755 -R /app/vb_django
+ENV PYTHONPATH="/app/vb_django:${PYTHONPATH}"
+ENV PATH="/app/vb_django:${PATH}"
 ENV DJANGO_SETTINGS_MODULE=vb_django.settings
 COPY dask_configuration.yaml /etc/dask
 CMD ["conda", "run", "-n", "pyenv", "--no-capture-output", "dask-worker", "vb-dask-scheduler:8786"]
