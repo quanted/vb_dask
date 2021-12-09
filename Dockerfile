@@ -6,7 +6,7 @@ RUN apt-get install --no-install-recommends git build-essential python3-dev libp
     pip install -U pip
 
 RUN mkdir /app/
-WORKDIR /app/
+WORKDIR /app/vb_django
 
 RUN conda create --name pyenv python=3.9
 
